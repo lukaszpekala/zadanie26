@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista wszystkich meczy</title>
+</head>
+<body layout:fragment="content">
+<div style="padding-top: 30px" class="col-12">
+    <h2>Mecze bez wyników</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Gospodarze</th>
+            <th scope="col">Goście</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="match: ${matchList}">
+            <input th:field="${match.id}" type="hidden"/>
+            <input th:field="${match.betCount}" type="hidden"/>
+            <input th:field="${match.bets}" type="hidden"/>
+            <td th:text="${match.host}"></td>
+            <td th:text="${match.visitor}"></td>
+            <td>
+                <a th:href="|/edit?id=${match.id}|">Podaj wynik</a>
+            </td>
+            <td>
+                <a th:href="|/delete?id=${match.id}|">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<div style="padding-top: 30px" class="col-12">
+    <h2>Mecze z wynikami</h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Gospodarze</th>
+            <th scope="col">Wynik</th>
+            <th scope="col">Goście</th>
+            <th scope="col">Wynik</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="match: ${doneMatchList}">
+            <input th:field="${match.id}" type="hidden"/>
+            <input th:field="${match.betCount}" type="hidden"/>
+            <input th:field="${match.bets}" type="hidden"/>
+            <td th:text="${match.host}"></td>
+            <td th:text="${match.hostScore}"></td>
+            <td th:text="${match.visitor}"></td>
+            <td th:text="${match.visitorScore}"></td>
+            <td>
+                <a th:href="|/show?id=${match.id}|">Pokaż wygrane</a>
+            </td>
+            <td>
+                <a th:href="|/delete?id=${match.id}|">Usuń</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

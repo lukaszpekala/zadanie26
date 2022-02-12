@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Wygrane</title>
+</head>
+<body layout:fragment="content">
+<div style="padding-top: 30px" class="col-12">
+    <h2 th:text="|Wygrane dla ${match.host} ${match.hostScore} : ${match.visitorScore} ${match.visitor}|"></h2>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col" th:text="${match.host}"></th>
+            <th scope="col" th:text="${match.visitor}">Wynik</th>
+            <th scope="col">Obstawiający</th>
+            <th scope="col">Zakład</th>
+            <th scope="col">Wygrana</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="bet : ${match.bets}">
+            <td th:text="${bet.hostScore}"></td>
+            <td th:text="${bet.visitorScore}"></td>
+            <td th:text="${bet.name}"></td>
+            <td th:text="${bet.bid}"></td>
+            <td th:text="${bet.win}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

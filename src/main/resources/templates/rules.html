@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Zasady</title>
+</head>
+<body layout:fragment="content">
+<div style="padding-top: 30px">
+    <h2>Zasady obstawiania</h2>
+    <ul class="list-group">
+        <li class="list-group-item ">
+            <div>
+                <p>Obstawiamy mecze, których wynik nie jest jeszcze znany.</p>
+                <p>Podajemy typowany wynik imię i kwotę zakładu.</p>
+                <p>Najczęściej obstawiane mecze są promowane.</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <p>Administrator wprowadza wynik meczu do systemu.</p>
+                <p>Od tego momentu obstawianie meczu nie jest już możliwe.</p>
+                <p>Obliczane sa wygrane zwycięzców.</p>
+            </div>
+        </li>
+        <li class="list-group-item">
+            <div>
+                <p>Przelicznik wygranej jest sumą wyników obu drużyn + 2.</p>
+                <p>Promowane mecze otrzymują dodatkowy bonus do przelicznika +2.</p>
+                <p>Przykład:</p>
+                <p>Poprawne obstawienie wyniku 1:1 stawką 5 da (1+1+2)*5=20 wygraną.</p>
+                <p>Poprawne obstawienie wyniku 1:1 promowanego meczu stawką 5 da (1+1+2+2)*5=30 wygraną.</p>
+                <p>Poprawne obstawienie wyniku 3:2 promowanego meczu stawką 5 da (3+2+2+2)*5=45 wygraną.</p>
+            </div>
+        </li>
+    </ul>
+</div>
+</body>
+</html>
