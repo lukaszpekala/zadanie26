@@ -2,6 +2,7 @@ package com.example.betandwin.match;
 
 import com.example.betandwin.bet.Bet;
 import com.example.betandwin.bet.BetRepository;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Objects;
@@ -34,7 +35,7 @@ public class MatchAndBetService {
     }
 
     public List<Match> findTop3ByHostScoreNullOrderByBetCountDesc() {
-        return matchRepository.findTop3ByHostScoreNullOrderByBetCountDesc();
+        return matchRepository.findByHostScoreNullOrderByBetCountDesc(PageRequest.of(0, 3));
     }
 
     public void deleteById(Long id) {

@@ -4,48 +4,50 @@
     <meta charset="UTF-8">
     <title>Obstaw</title>
 </head>
-<body layout:fragment="content">
-<div style="padding-top: 30px" class="col-12">
-    <h2>Mecze promowane</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Gospodarze</th>
-            <th scope="col">Goście</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="match: ${topList}">
-            <input th:field="${match.id}" type="hidden"/>
-            <td th:text="${match.host}"></td>
-            <td th:text="${match.visitor}"></td>
-            <td>
-                <a th:href="|/bet?id=${match.id}&promo=true|">Obstaw</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</div>
-<div style="padding-top: 30px" class="col-12">
-    <h2>Mecze</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th scope="col">Gospodarze</th>
-            <th scope="col">Goście</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr th:each="match: ${matchList}">
-            <input th:field="${match.id}" type="hidden"/>
-            <td th:text="${match.host}"></td>
-            <td th:text="${match.visitor}"></td>
-            <td>
-                <a th:href="|/bet?id=${match.id}&promo=false|">Obstaw</a>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+<body>
+<div layout:fragment="content">
+    <div class="col-12">
+        <h2>Mecze promowane</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Gospodarze</th>
+                <th scope="col">Goście</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="match: ${topList}">
+                <input th:field="${match.id}" type="hidden"/>
+                <td th:text="${match.host}"></td>
+                <td th:text="${match.visitor}"></td>
+                <td>
+                    <a th:href="|/bet?id=${match.id}&promo=true|">Obstaw</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style="padding-top: 30px" class="col-12">
+        <h2>Mecze</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Gospodarze</th>
+                <th scope="col">Goście</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="match: ${matchList}">
+                <input th:field="${match.id}" type="hidden"/>
+                <td th:text="${match.host}"></td>
+                <td th:text="${match.visitor}"></td>
+                <td>
+                    <a th:href="|/bet?id=${match.id}&promo=false|">Obstaw</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
 </body>
 </html>

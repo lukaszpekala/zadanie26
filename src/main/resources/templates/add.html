@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>Dodaj mecz</title>
 </head>
-<body layout:fragment="content">
-<div style="padding-top: 30px">
+<body>
+<div layout:fragment="content">
     <form class="row g-3" method="post" th:action="@{/add}" th:object="${match}">
         <h2>Dodawanie meczu</h2>
         <input th:field="*{betCount}" type="hidden">
