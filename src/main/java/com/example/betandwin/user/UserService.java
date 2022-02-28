@@ -76,11 +76,11 @@ public class UserService {
             try {
                 String oldPassword = user.getPassword();
                 dbUser = updatePassword(dbUser, oldPassword, newPassword);
-                userRepository.save(dbUser);
             } catch (InvalidKeyException e) {
                 updated = false;
             }
         }
+        userRepository.save(dbUser);
         return updated;
     }
 

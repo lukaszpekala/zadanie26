@@ -9,7 +9,7 @@
     <form class="row g-3" method="post" th:action="@{/profile}" th:object="${user}">
         <h2 th:text="|Użytkownik ${user.username}|"></h2>
         <h3 th:if="${updated}">Zapisano dane</h3>
-        <h3 th:unless="${updated}">Niepoprawne hasło</h3>
+        <h3 th:if="${updated == false}">Niepoprawne hasło</h3>
         <input th:field="*{id}" type="hidden">
         <input th:field="*{username}" type="hidden">
         <div class="col-md-12">
