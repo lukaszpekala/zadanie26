@@ -70,5 +70,19 @@ values
     (1, 1, 9, 3, 'Kasia', 0, false),
     (0, 0, 9, 7, 'Asia', 14, false);
 
+INSERT INTO user_role(role)
+VALUES ('ROLE_USER'), ('ROLE_ADMIN');
+
+insert into user (username, password)
+values
+('marian', '{noop}osom'),
+('adam', '{noop}osom'),
+('zenon', '{noop}osom');
+
+insert into user_roles(user_id, roles_id)
+values
+(1, 1), (1, 2),
+(2, 1), (2, 2),
+(3, 1);
 
 

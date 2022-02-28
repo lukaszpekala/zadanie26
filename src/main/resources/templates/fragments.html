@@ -13,10 +13,17 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div class="navbar-nav">
+                <div class="navbar-nav ">
                     <a class="nav-link active" aria-current="page" th:href="|/|">Obstaw</a>
                     <a class="nav-link active" aria-current="page" th:href="|/results|">Wyniki</a>
                     <a class="nav-link active" aria-current="page" th:href="|/rules|">Zasady</a>
+                    <a class="nav-link active" aria-current="page" th:href="|/profile|">Edytuj profil</a>
+                    <a class="nav-link active" aria-current="page" th:href="|/register|">Zarejestruj</a>
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="btn btn-primary" aria-current="page" role="button" th:href="|/login|">Zaloguj</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -34,6 +41,7 @@
 
                     <a class="nav-link" th:href="|/list|">Lista</a>
                     <a class="nav-link" th:href="|/add|">Dodaj</a>
+                    <a class="nav-link" th:href="|/admin|">Panel admina</a>
                 </div>
             </div>
         </div>
