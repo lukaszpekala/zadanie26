@@ -73,11 +73,11 @@ values
 INSERT INTO user_role(role)
 VALUES ('ROLE_USER'), ('ROLE_ADMIN');
 
-insert into user (username, password)
+insert into user (username, password, first_name, last_name)
 values
-('marian', '{noop}osom'),
-('adam', '{noop}osom'),
-('zenon', '{noop}osom');
+('marian', '{noop}osom', 'Marian', 'Szczęch'),
+('adam', '{noop}osom', 'Adam', 'Gąska'),
+('zenon', '{noop}osom', 'Zenon', 'Bąk');
 
 insert into user_roles(user_id, roles_id)
 values

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Fragments</title>
@@ -15,16 +16,12 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ">
                     <a class="nav-link active" aria-current="page" th:href="|/|">Obstaw</a>
-                    <a class="nav-link active" aria-current="page" th:href="|/results|">Wyniki</a>
                     <a class="nav-link active" aria-current="page" th:href="|/rules|">Zasady</a>
-                    <a class="nav-link active" aria-current="page" th:href="|/profile|">Edytuj profil</a>
-                    <a class="nav-link active" aria-current="page" th:href="|/register|">Zarejestruj</a>
-                    <a class="nav-link active" aria-current="page" th:href="|/logout|">Wyloguj</a>
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item">
-                            <a class="btn btn-primary" aria-current="page" role="button" th:href="|/login|">Zaloguj</a>
-                        </li>
-                    </ul>
+                    <a sec:authorize="isAuthenticated()" class="nav-link active" aria-current="page" th:href="|/results|">Wyniki</a>
+                    <a sec:authorize="isAuthenticated()" class="nav-link active" aria-current="page" th:href="|/profile|">Edytuj profil</a>
+                    <a sec:authorize="isAuthenticated()" class="nav-link active" aria-current="page" th:href="|/logout|">Wyloguj</a>
+                    <a sec:authorize="isAuthenticated() == false" class="nav-link active" aria-current="page" th:href="|/register|">Zarejestruj</a>
+                    <a sec:authorize="isAuthenticated() == false" class="nav-link active" aria-current="page" th:href="|/login|">Zaloguj</a>
                 </div>
             </div>
         </div>
@@ -39,10 +36,9 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup2">
                 <div class="navbar-nav">
-
-                    <a class="nav-link" th:href="|/list|">Lista</a>
-                    <a class="nav-link" th:href="|/add|">Dodaj</a>
-                    <a class="nav-link" th:href="|/admin|">Panel admina</a>
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link" th:href="|/list|">Lista</a>
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link" th:href="|/add|">Dodaj</a>
+                    <a sec:authorize="hasRole('ROLE_ADMIN')" class="nav-link" th:href="|/admin|">Panel admina</a>
                 </div>
             </div>
         </div>
