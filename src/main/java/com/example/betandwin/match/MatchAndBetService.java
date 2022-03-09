@@ -12,7 +12,6 @@ public class MatchAndBetService {
     private static final int WRONG_GUESS = 0;
     private static final int RATE_BONUS = 2;
     private static final int PROMO_BONUS = 2;
-    private static final int ADD_BET = 1;
 
     private final MatchRepository matchRepository;
     private final BetRepository betRepository;
@@ -70,14 +69,7 @@ public class MatchAndBetService {
         }
     }
 
-    public void addBet(Match match) {
-        match.setBetCount(match.getBetCount() + ADD_BET);
-        matchRepository.save(match);
-    }
-
     public void placeBet(Bet bet) {
-        Match match = matchRepository.getById(bet.getMatch().getId());
-        addBet(match);
         betRepository.save(bet);
     }
 }

@@ -1,7 +1,9 @@
 package com.example.betandwin.bet;
 
 import com.example.betandwin.match.Match;
+
 import javax.persistence.*;
+
 
 @Entity
 public class Bet {

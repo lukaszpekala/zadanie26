@@ -1,9 +1,9 @@
-insert into match (id, host, visitor, bet_count)
+insert into match (id, host, visitor)
 values
-       (1, 'Koluszki', 'Młociny', 3),
-       (2, 'Grabów', 'Grabowo', 3),
-       (3, 'Brezo', 'Nanowice', 1),
-       (4, 'Kramków', 'Torminów', 1);
+       (1, 'Koluszki', 'Młociny'),
+       (2, 'Grabów', 'Grabowo'),
+       (3, 'Brezo', 'Nanowice'),
+       (4, 'Kramków', 'Torminów');
 
 
 insert into bet (id, host_score, visitor_score, match_id, bid, name, promo)
@@ -17,13 +17,13 @@ values
     (7, 4, 3, 3, 88, 'Monika', false);
 
 
-insert into match (host, visitor, host_score, visitor_score, bet_count)
+insert into match (host, visitor, host_score, visitor_score)
 values
-    ('Kamień', 'Płomyk', 2, 2, 7),
-    ('Mops', 'Cmyk', 3, 2, 6),
-    ('Retina', 'Ips', 1, 1, 6),
-    ('Alfa', 'Romeo', 4, 2, 5),
-    ('Smyk', 'Bryk', 0, 0, 5);
+    ('Kamień', 'Płomyk', 2, 2),
+    ('Mops', 'Cmyk', 3, 2),
+    ('Retina', 'Ips', 1, 1),
+    ('Alfa', 'Romeo', 4, 2),
+    ('Smyk', 'Bryk', 0, 0);
 
 
 insert into bet (host_score, visitor_score, match_id, bid, name, win, promo)

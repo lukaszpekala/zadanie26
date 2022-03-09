@@ -18,7 +18,6 @@
             <tbody>
             <tr th:each="match: ${matchList}">
                 <input th:field="${match.id}" type="hidden"/>
-                <input th:field="${match.betCount}" type="hidden"/>
                 <input th:field="${match.bets}" type="hidden"/>
                 <td th:text="${match.host}"></td>
                 <td th:text="${match.visitor}"></td>
@@ -46,7 +45,6 @@
             <tbody>
             <tr th:each="match: ${doneMatchList}">
                 <input th:field="${match.id}" type="hidden"/>
-                <input th:field="${match.betCount}" type="hidden"/>
                 <input th:field="${match.bets}" type="hidden"/>
                 <td th:text="${match.host}"></td>
                 <td th:text="${match.hostScore}"></td>
