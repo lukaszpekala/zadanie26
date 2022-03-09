@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Panel admina</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="col-12">
+        <h2>Panel admina</h2>
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">Użytkownik</th>
+                <th scope="col">Role</th>
+                <th scope="col">Edycja ról</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="user: ${users}">
+                <td th:text="${user.username}"></td>
+                <td>
+                    <ul th:each="role: ${user.roles}">
+                        <li>
+                            <span th:text="${role.role}"></span>
+                        </li>
+                    </ul>
+                </td>
+                <td>
+                    <a th:href="|/admin/role?id=${user.id}|">Edytuj</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

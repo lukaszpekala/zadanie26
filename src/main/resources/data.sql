@@ -1,9 +1,9 @@
-insert into match (id, host, visitor, bet_count)
+insert into match (id, host, visitor)
 values
-       (1, 'Koluszki', 'Młociny', 3),
-       (2, 'Grabów', 'Grabowo', 3),
-       (3, 'Brezo', 'Nanowice', 1),
-       (4, 'Kramków', 'Torminów', 1);
+       (1, 'Koluszki', 'Młociny'),
+       (2, 'Grabów', 'Grabowo'),
+       (3, 'Brezo', 'Nanowice'),
+       (4, 'Kramków', 'Torminów');
 
 
 insert into bet (id, host_score, visitor_score, match_id, bid, name, promo)
@@ -17,13 +17,13 @@ values
     (7, 4, 3, 3, 88, 'Monika', false);
 
 
-insert into match (host, visitor, host_score, visitor_score, bet_count)
+insert into match (host, visitor, host_score, visitor_score)
 values
-    ('Kamień', 'Płomyk', 2, 2, 7),
-    ('Mops', 'Cmyk', 3, 2, 6),
-    ('Retina', 'Ips', 1, 1, 6),
-    ('Alfa', 'Romeo', 4, 2, 5),
-    ('Smyk', 'Bryk', 0, 0, 5);
+    ('Kamień', 'Płomyk', 2, 2),
+    ('Mops', 'Cmyk', 3, 2),
+    ('Retina', 'Ips', 1, 1),
+    ('Alfa', 'Romeo', 4, 2),
+    ('Smyk', 'Bryk', 0, 0);
 
 
 insert into bet (host_score, visitor_score, match_id, bid, name, win, promo)
@@ -70,5 +70,19 @@ values
     (1, 1, 9, 3, 'Kasia', 0, false),
     (0, 0, 9, 7, 'Asia', 14, false);
 
+INSERT INTO user_role(role)
+VALUES ('ROLE_USER'), ('ROLE_ADMIN');
+
+insert into user (username, password, first_name, last_name)
+values
+('marian', '{noop}osom', 'Marian', 'Szczęch'),
+('adam', '{noop}osom', 'Adam', 'Gąska'),
+('zenon', '{noop}osom', 'Zenon', 'Bąk');
+
+insert into user_roles(user_id, roles_id)
+values
+(1, 1), (1, 2),
+(2, 1), (2, 2),
+(3, 1);
 
 

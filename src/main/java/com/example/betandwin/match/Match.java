@@ -15,19 +15,8 @@ public class Match {
     private Integer hostScore;
     private Integer visitorScore;
 
-    @Column(columnDefinition = "integer default 0")
-    private int betCount;
-
     @OneToMany(mappedBy = "match", cascade = CascadeType.REMOVE)
     private List<Bet> bets;
-
-    public Integer getBetCount() {
-        return betCount;
-    }
-
-    public void setBetCount(Integer betCount) {
-        this.betCount = betCount;
-    }
 
     public Long getId() {
         return id;
