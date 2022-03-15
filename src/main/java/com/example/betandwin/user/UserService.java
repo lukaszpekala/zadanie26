@@ -28,7 +28,7 @@ public class UserService {
     }
 
     public void registerUser(String username, String rawPassword) {
-        User userToAdd = new User();
+        AUser userToAdd = new AUser();
         userToAdd.setUsername(username);
         String encryptedPassword = passwordEncoder.encode(rawPassword);
         userToAdd.setPassword(encryptedPassword);
@@ -36,11 +36,11 @@ public class UserService {
         userRepository.save(userToAdd);
     }
 
-    public User findByUsername(String name) {
+    public AUser findByUsername(String name) {
         return userRepository.findByUsername(name).orElse(null);
     }
 
-    public List<User> findAllWithoutCurrentUser() {
+    public List<AUser> findAllWithoutCurrentUser() {
         Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
         return userRepository.findAll()
                 .stream()
@@ -48,17 +48,17 @@ public class UserService {
                 .collect(Collectors.toList());
     }
 
-    public User findById(Long id) {
+    public AUser findById(Long id) {
         return userRepository.findById(id).orElse(null);
     }
 
-    public boolean isUserAnAdmin(User user) {
+    public boolean isUserAnAdmin(AUser user) {
         return user.getRoles().contains(userRoleRepository.findByRole(Role.ROLE_ADMIN));
     }
 
     public void updateUserRole(Long id, boolean admin) {
         UserRole userRole = userRoleRepository.findByRole(Role.ROLE_ADMIN);
-        User user = findById(id);
+        AUser user = findById(id);
         if (admin) {
             user.getRoles().add(userRole);
         } else {
@@ -67,8 +67,8 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public boolean updateProfile(User user, String newPassword) {
-        User dbUser = findById(user.getId());
+    public boolean updateProfile(AUser user, String newPassword) {
+        AUser dbUser = findById(user.getId());
         dbUser.setFirstName(user.getFirstName());
         dbUser.setLastName(user.getLastName());
         boolean updated = true;
@@ -84,7 +84,7 @@ public class UserService {
         return updated;
     }
 
-    private User updatePassword(User dbUser, String oldPassword, String newPassword) throws InvalidKeyException {
+    private AUser updatePassword(AUser dbUser, String oldPassword, String newPassword) throws InvalidKeyException {
         Authentication currentUser = SecurityContextHolder.getContext().getAuthentication();
         if (currentUser.getName().equals(dbUser.getUsername())) {
             if (passwordEncoder.matches(oldPassword, dbUser.getPassword())) {

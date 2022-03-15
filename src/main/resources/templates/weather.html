@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Pogoda</title>
+</head>
+<body>
+<div layout:fragment="content" >
+    <div class="col-12">
+        <h2>Pogoda na dziś</h2>
+        <form class="row g-3" method="post" th:action="@{/weather}" th:object="${weather}">
+
+            <div class="col-12">
+                <label class="form-label" th:for="name">Podaj miasto</label>
+                <input class="form-control" required th:field="*{name}" th:id="name" type="text"/>
+            </div>
+
+            <div class="col-12">
+                <button class="btn btn-primary" name="submit" type="submit" value="submit">Wybierz</button>
+            </div>
+            <h3 th:if="${foundCity == false}">Miasto nie zostało znalezione, podano pogodę dla domyślenej lokalizacji.</h3>
+        </form>
+        <div style="padding-top: 30px" class="col-12">
+            <h2 th:text="${weather.name}"></h2>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Bieżące warunki</th>
+                    <th scope="col">Temperatura</th>
+                    <th scope="col">Powietrze</th>
+                    <th scope="col">Wiatr i Chmury</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <img th:src="${weather.icon}" class="img-thumbnail" alt="...">
+                        <p th:text="${weather.description}"></p>
+                    </td>
+                    <td>
+                        <p th:text="|Temperatura: ${weather.temp} C|"></p>
+                        <p th:text="|Odczuwalna: ${weather.feelsLike} C|"></p>
+                        <p th:text="|Minimalna: ${weather.minTemp} C|"></p>
+                        <p th:text="|Maksymalna: ${weather.maxTemp} C|"></p>
+                    </td>
+                    <td>
+                        <p th:text="|Widzialność: ${weather.visibility} m|"></p>
+                        <p th:text="|Wilgotność: ${weather.humidity}%|"></p>
+                        <p th:text="|Ciśnienie: ${weather.pressure} hPa|"></p>
+                    </td>
+                    <td>
+                        <p th:text="|Prędkość: ${weather.windSpeed} m/s|"></p>
+                        <p th:text="|Zachmurzenie: ${weather.clouds}%|"></p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+ </div>
+</body>
+</html>

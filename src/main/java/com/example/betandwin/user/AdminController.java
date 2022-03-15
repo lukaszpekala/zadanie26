@@ -17,14 +17,14 @@ public class AdminController {
 
     @GetMapping("")
     public String admin(Model model) {
-        List<User> users = userService.findAllWithoutCurrentUser();
+        List<AUser> users = userService.findAllWithoutCurrentUser();
         model.addAttribute("users", users);
         return "admin";
     }
 
     @GetMapping("/role")
     public String editRole(@RequestParam Long id, Model model) {
-        User user = userService.findById(id);
+        AUser user = userService.findById(id);
         boolean isAdmin = userService.isUserAnAdmin(user);
         model.addAttribute("user", user);
         model.addAttribute("isAdmin", isAdmin);
@@ -32,7 +32,7 @@ public class AdminController {
     }
 
     @PostMapping("/role")
-    public String editRole(@RequestParam boolean admin, User user) {
+    public String editRole(@RequestParam boolean admin, AUser user) {
         userService.updateUserRole(user.getId(), admin);
         return "redirect:/admin";
     }

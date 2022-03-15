@@ -1,9 +1,14 @@
 package com.example.betandwin.match;
 
 import com.example.betandwin.bet.Bet;
+import lombok.Getter;
+import lombok.Setter;
+
 import javax.persistence.*;
 import java.util.List;
 
+@Getter
+@Setter
 @Entity
 public class Match {
 
@@ -17,52 +22,4 @@ public class Match {
 
     @OneToMany(mappedBy = "match", cascade = CascadeType.REMOVE)
     private List<Bet> bets;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getHost() {
-        return host;
-    }
-
-    public void setHost(String host) {
-        this.host = host;
-    }
-
-    public String getVisitor() {
-        return visitor;
-    }
-
-    public void setVisitor(String visitor) {
-        this.visitor = visitor;
-    }
-
-    public Integer getHostScore() {
-        return hostScore;
-    }
-
-    public void setHostScore(Integer hostScore) {
-        this.hostScore = hostScore;
-    }
-
-    public Integer getVisitorScore() {
-        return visitorScore;
-    }
-
-    public void setVisitorScore(Integer visitorScore) {
-        this.visitorScore = visitorScore;
-    }
-
-    public List<Bet> getBets() {
-        return bets;
-    }
-
-    public void setBets(List<Bet> bets) {
-        this.bets = bets;
-    }
 }
