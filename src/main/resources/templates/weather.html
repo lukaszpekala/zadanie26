@@ -8,21 +8,17 @@
 <div layout:fragment="content" >
     <div class="col-12">
         <h2>Pogoda na dziś</h2>
-        <form class="row g-3" method="post" th:action="@{/weather}" th:object="${weather}">
-
+        <form class="row g-3" method="GET" th:action="@{/weather}">
             <div class="col-12">
                 <label class="form-label" th:for="name">Podaj miasto</label>
-                <input class="form-control" required th:field="*{name}" th:id="name" type="text"/>
+                <input class="form-control" th:name="city" required placeholder="Wrocław" th:id="name" type="text"/>
             </div>
-
             <div class="col-12">
-                <button class="btn btn-primary" name="submit" type="submit" value="submit">Wybierz</button>
+                <button class="btn btn-primary" type="submit">Wybierz</button>
             </div>
-            <h3 th:if="${foundCity == false}">Miasto nie zostało znalezione, podano pogodę dla domyślenej lokalizacji.</h3>
         </form>
         <div style="padding-top: 30px" class="col-12">
             <h2 th:text="${weather.name}"></h2>
-
             <table class="table">
                 <thead>
                 <tr>
