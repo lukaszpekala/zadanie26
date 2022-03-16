@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class WeatherDto {
-    private String name;
     private String icon;
     private String description;
     private Double temp;

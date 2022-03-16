@@ -6,9 +6,8 @@ import org.springframework.stereotype.Service;
 public class WeatherDtoMapper {
     private static final String ICON_LINK = "https://openweathermap.org/img/wn/";
 
-    WeatherDto map(LocationWeatherDto lwd, String city) {
+    WeatherDto map(LocationWeatherDto lwd) {
         WeatherDto dto = new WeatherDto();
-        dto.setName(city);
         dto.setIcon(ICON_LINK + lwd.getWeather().get(0).getIcon() + "@2x.png");
         dto.setDescription(lwd.getWeather().get(0).getDescription());
         dto.setTemp(Math.round(lwd.getMain().get("temp") * 10.0) / 10.0);
