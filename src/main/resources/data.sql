@@ -1,20 +1,20 @@
-insert into match (id, host, visitor)
+insert into match (host, visitor)
 values
-       (1, 'Koluszki', 'Młociny'),
-       (2, 'Grabów', 'Grabowo'),
-       (3, 'Brezo', 'Nanowice'),
-       (4, 'Kramków', 'Torminów');
+    ('Koluszki', 'Młociny'),
+    ('Grabów', 'Grabowo'),
+    ('Brezo', 'Nanowice'),
+    ('Kramków', 'Torminów');
 
 
-insert into bet (id, host_score, visitor_score, match_id, bid, name, promo)
+insert into bet (host_score, visitor_score, match_id, bid, name, promo)
 values
-    (1, 4, 3, 1, 4, 'Adam', false),
-    (2, 0, 0, 1, 12, 'Marian', false),
-    (3, 2, 1, 1, 6, 'Anna', false),
-    (4, 1, 0, 2, 3, 'Kasia', false),
-    (5, 0, 6, 2, 7, 'Asia', false),
-    (6, 2, 2, 4, 78, 'Basia', false),
-    (7, 4, 3, 3, 88, 'Monika', false);
+    (4, 3, 1, 4, 'Adam', false),
+    (0, 0, 1, 12, 'Marian', false),
+    (2, 1, 1, 6, 'Anna', false),
+    (1, 0, 2, 3, 'Kasia', false),
+    (0, 6, 2, 7, 'Asia', false),
+    (2, 2, 4, 78, 'Basia', false),
+    (4, 3, 3, 88, 'Monika', false);
 
 
 insert into match (host, visitor, host_score, visitor_score)
@@ -73,16 +73,16 @@ values
 INSERT INTO user_role(role)
 VALUES ('ROLE_USER'), ('ROLE_ADMIN');
 
-insert into user (username, password, first_name, last_name)
+INSERT INTO auser(username, password, first_name, last_name)
 values
-('marian', '{noop}osom', 'Marian', 'Szczęch'),
-('adam', '{noop}osom', 'Adam', 'Gąska'),
-('zenon', '{noop}osom', 'Zenon', 'Bąk');
+    ('marian', '{noop}osom', 'Marian', 'Szczęch'),
+    ('adam', '{noop}osom', 'Adam', 'Gąska'),
+    ('zenon', '{noop}osom', 'Zenon', 'Bąk');
 
-insert into user_roles(user_id, roles_id)
+insert into auser_roles(auser_id, roles_id)
 values
-(1, 1), (1, 2),
-(2, 1), (2, 2),
-(3, 1);
+    (1, 1), (1, 2),
+    (2, 1), (2, 2),
+    (3, 1);
 
 

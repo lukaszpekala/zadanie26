@@ -20,12 +20,12 @@ public class UserController {
 
     @GetMapping("/register")
     public String register(Model model) {
-        model.addAttribute("user", new User());
+        model.addAttribute("user", new AUser());
         return "register";
     }
 
     @PostMapping("/register")
-    public ModelAndView register(User user) {
+    public ModelAndView register(AUser user) {
         String username = user.getUsername();
         String rawPassword = user.getPassword();
         userService.registerUser(username, rawPassword);
@@ -45,13 +45,13 @@ public class UserController {
     @GetMapping("/profile")
     public String edit(Principal principal, Model model) {
         String name = principal.getName();
-        User user = userService.findByUsername(name);
+        AUser user = userService.findByUsername(name);
         model.addAttribute("user", user);
         return "profile";
     }
 
     @PostMapping("/profile")
-    public ModelAndView edit(@RequestParam(required = false) String newPassword, User user) {
+    public ModelAndView edit(@RequestParam(required = false) String newPassword, AUser user) {
         boolean updated = userService.updateProfile(user, newPassword);
         ModelAndView modelAndView = new ModelAndView("profile");
         modelAndView.addObject("updated", updated);
